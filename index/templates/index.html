@@ -1,0 +1,334 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Interview Feedback Form</title>
+    <link href="{% static 'style.css' %}" rel="stylesheet">
+  </head>
+  <body class="bg-light" style="text-align: center;">
+  	<div class="justify-content-center">
+    <div class="" style="padding: 50px;background-color: #fff6ea;border-radius: 30px;margin: 5% 10% 0 10%;">
+      <div class="container justify-content-center">
+        <form method="post" >
+        	{% csrf_token %}
+        	<div class="text-center">
+        	<h3><u>Interview Feedback form</u></h3>
+        	</div>
+        	<div class="">
+        	<div class="title">
+        		<h5>User Information</h5>
+        	</div>	
+        	<div id="userinfo" style="padding: 15px;">		
+			  <div class="row m-1">
+			  	<div class="col-2">
+			  		<h6 >Name</h6>
+			  	</div>
+			      <div class="col">
+			      	 <input type="text" name="name" id="name" class="form-control">
+			      </div>
+			  </div>
+
+			  <div class="row m-1">
+			  	<div class="col-2">
+			  		<h6 >Location</h6>
+			  	</div>
+			      <div class="col">
+			      	 <input type="text" name="location" id="location" class="form-control">
+			      </div>
+			  </div>
+
+			  <div class="row m-1">
+			  	<div class="col-2">
+			  		<h6 >Email Address</h6>
+			  	</div>
+			      <div class="col">
+			      	 <input type="email" name="eamil" id="eamil" class="form-control">
+			      </div>
+			  </div>
+
+			  <div class="row m-1">
+			  	<div class="col-2">
+			  		<h6 >Phone Number</h6>
+			  	</div>
+			      <div class="col">
+			      	 <input type="number" name="phone" id="phone" class="form-control">
+			      </div>
+			  </div>
+			</div>
+			<div class="title">
+        		<h5>Interviwer Information</h5>
+        	</div>	
+
+			<div id="interviewerinfo" style="padding: 15px;">		
+
+			  <div class="row m-1">
+			  	<div class="col-2">
+			  		<h6 >Name your Interviewer</h6>
+			  	</div>
+			      <div class="col">
+			      	 <input type="text" name="intervername" id="interviewername" class="form-control">
+			      </div>
+			  </div>
+
+			  <div class="row m-1">
+			  	<div class="col-2">
+			  		<h6 >Rate your Experience</h6>
+			  	</div>
+			      <div class="col">
+			      	 <input type="text" name="rate" id="rate" class="form-control">
+			      </div>
+			  </div>
+
+			  <div class="row m-1">
+			  	<div class="col-2">
+			  		<h6>Do you want to Refer your friend?</h6>
+			  	</div>
+			      <div class="col">
+			      	 <select class="form-select" aria-label="Default select example" id="referfriend">
+					  <option selected></option>
+					  <option value="1">Yes</option>
+					  <option value="2">No</option>
+					</select>
+			      </div>
+			  </div>
+			</div>
+
+			
+
+			<div id="friendinfo" style="padding: 15px;">		
+        		<div class="title">
+        		<h5>Friend Refer Information</h5>
+        	</div>
+
+			  <div class="row m-1">
+			  	<div class="col-2">
+			  		<h6 >Name of your friend</h6>
+			  	</div>
+			      <div class="col">
+			      	 <input type="text" name="friendname" id="friendname" class="form-control">
+			      </div>
+			  </div>
+
+			  <div class="row m-1">
+			  	<div class="col-2">
+			  		<h6 >Contact Number</h6>
+			  	</div>
+			      <div class="col">
+			      	 <input type="number" name="friendcontact" id="contact" class="form-control">
+			      </div>
+			  </div>
+
+			  <div class="row m-1">
+			  	<div class="col-2">
+			  		<h6 >Location</h6>
+			  	</div>
+			      <div class="col">
+			      	 <input type="text" name="frindlocation" id="friendlocation" class="form-control">
+			      </div>
+			  </div>
+
+			</div>
+
+			<div id="socialmedia" style="padding: 15px;">
+				<div class="row m-1">
+					
+						<div><h5 >Social Presence: Are you on ?</h5></div>
+			      	 <div class="">
+							  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" onclick="checkfunction()">
+							  <label class="form-check-label" for="flexCheckDefault">
+							    Yes
+							  </label>
+							</div>
+			      
+			  </div>
+			</div>
+
+			<div id="socialmedialink" style="padding: 15px;">		
+			  <div class="row m-1">
+			  	<div class="col-2">
+			  		<h6 >Facebook</h6>
+			  	</div>
+			      <div class="col">
+			      	 
+			      </div>
+			  </div>
+
+			  <div class="row m-1">
+			  	<div class="col-2">
+			  		<h6 >Instagram</h6>
+			  	</div>
+			      <div class="col">
+			      	 
+			      </div>
+			  </div>
+
+			  <div class="row m-1">
+			  	<div class="col-2">
+			  		<h6 >LinkedIn</h6>
+			  	</div>
+			      <div class="col">
+			      	 
+			      </div>
+			  </div>
+			  
+			  
+			</div>
+			<div class="row m-1">
+			  	<div class="col-2">
+			  		<h6 >Will you rate us on Google & write a review</h6>
+			  	</div>
+			      <div class="col">
+			      	 <select class="form-select" id="googlereview">
+					  <option selected></option>
+					  <option value="1">Yes</option>
+					  <option value="2">No</option>
+					</select>
+			      </div>
+			  </div>
+
+			<div id="socialfollower" style="padding: 15px;"> 
+				<div class="row m-1">
+			  	<div class="col-2">
+			  		<h6 >Google</h6>
+			  	</div>
+			      <div class="col">
+			      	 
+			      </div>
+			  </div>		
+			  <div class="row m-1">
+			  	<div class="col-2">
+			  		<h6 >Facebook</h6>
+			  	</div>
+			      <div class="col">
+			      	 
+			      </div>
+			  </div>
+
+			  <div class="row m-1">
+			  	<div class="col-2">
+			  		<h6 >Instagram</h6>
+			  	</div>
+			      <div class="col">
+			      	 
+			      </div>
+			  </div>
+
+			  <div class="row m-1">
+			  	<div class="col-2">
+			  		<h6 >LinkedIn</h6>
+			  	</div>
+			      <div class="col">
+			      	 
+			      </div>
+			  </div>			  
+			</div>
+
+			<div class="row m-1" style="justify-content: center;">
+			  	<div class="col-3 ">
+			  		<input type="button" id="submitbtn" class="btn btn-success form-control" value="Submit">
+			  	</div>
+			      <div class="col-3">
+			      	 <input type="reset" class="btn btn-danger form-control" value="Reset">
+			      </div>
+			  </div>			  
+			</div>
+
+       
+      </form>
+      </div>
+            
+    </div>
+    </div> 
+    <script src="{% static 'jquery.js'%}"></script>
+    <script src="{% static 'boot.js'%}"></script>
+	<script src="{% static 'p.js'%}"></script>
+	<script>
+		
+		var x = false
+		function checkfunction() {
+				if(x == false){
+				$('#socialmedialink').show()
+				x = true;
+			}
+			else{
+				$('#socialmedialink').hide()
+				x = false;
+			}
+
+
+			}
+
+		
+		$(document).ready(function(){
+
+			$('#friendinfo').hide();
+			$('#socialmedialink').hide()
+			$('#socialfollower').hide()
+
+			var checkedhistory = document.getElementById("flexCheckDefault").checked;
+			if(checkedhistory==false){
+				$('#socialfollower').hide()
+			}	
+
+
+			if(checkedhistory == true){
+				
+			}
+
+			$('#referfriend').on('change', function(){
+				var ans = $(this).val();
+
+				if(ans == '1')
+				{
+					$('#friendinfo').show();
+				}		
+				if(ans=='2')
+				{
+					$('#friendinfo').hide();
+				}	
+
+
+			});
+
+			$('#googlereview').on('change', function(){
+				var answer = $(this).val();
+
+				if(answer == '1')
+				{
+					$('#socialfollower').show();
+				}		
+				if(answer=='2')
+				{
+					$('#socialfollower').hide();
+				}	
+
+			});
+
+
+			$('#submitbtn').click(function(){
+
+				var emp_name = $('#name').val();
+				var location = $('#location').val();
+				var email	= $('#email').val();
+				var phone = $('#phone').val();
+				var name_interviewer = $('#intervername').val();
+				var rate = $('#rate').val();
+				var friendname = $('#friendname').val()
+				var contact = $('#contact').val()
+				var friendloc = $('#friendlocation').val()
+
+				alert(location);
+
+			});
+			
+
+
+
+
+		});
+	</script>
+
+  </body>
+</html>

@@ -1,0 +1,397 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Interview Feedback Form</title>
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+	<title>Feedback Form</title>
+	<style type="text/css">
+		.li1{
+			padding-inline-end: 100px;
+
+		}
+		#show1{
+			font-size: 25px;
+		    color: rgb(255, 255, 255);
+		    text-align: center;
+		    padding: 5px;
+		    border-radius: 10px 45px 45px 10px;
+			background-color: #00d2ff;
+			margin-inline-start: inherit;
+    		
+		}
+		#show2{
+			font-size: 25px;
+		    color: rgb(255, 255, 255);
+		    text-align: center;
+		    padding: 5px;
+		    border-radius: 10px 45px 45px 10px;
+			background-color: #aaacad;
+			margin-inline-start: inherit;
+    		z-index: -1;
+		}
+		#show3{
+			font-size: 25px;
+		    color: rgb(255, 255, 255);
+		    text-align: center;
+		    padding: 5px;
+		    border-radius: 10px 45px 45px 10px;
+			background-color: #aaacad;
+			margin-inline-start: inherit;
+    		z-index: -2;
+		}
+		#show4{
+			font-size: 25px;
+		    color: rgb(255, 255, 255);
+		    text-align: center;
+		    padding: 5px;
+		    border-radius: 10px 45px 45px 10px;
+			background-color: #aaacad;
+			margin-inline-start: inherit;
+    		z-index: -3;
+		}
+	</style>
+	<style type="text/css">
+.rate {
+    float: left;
+    height: 46px;
+    padding: 0 10px;
+}
+.rate:not(:checked) > input {
+    position:absolute;
+    top:-9999px;
+}
+.rate:not(:checked) > label {
+    float:right;
+    width:1em;
+    overflow:hidden;
+    white-space:nowrap;
+    cursor:pointer;
+    font-size:30px;
+    color:#ccc;
+}
+.rate:not(:checked) > label:before {
+    content: '★ ';
+}
+.rate > input:checked ~ label {
+    color: #ffc700;    
+}
+.rate:not(:checked) > label:hover,
+.rate:not(:checked) > label:hover ~ label {
+    color: #deb217;  
+}
+.rate > input:checked + label:hover,
+.rate > input:checked + label:hover ~ label,
+.rate > input:checked ~ label:hover,
+.rate > input:checked ~ label:hover ~ label,
+.rate > label:hover ~ input:checked ~ label {
+    color: #c59b08;
+}
+	</style>
+</head>
+<body>
+
+	<main role="main" class="container">
+  <div class="d-flex align-items-center p-3 my-3 text-white-50 bg-dark rounded shadow-sm">
+  	<div class="d-flex col-8">
+  		<div>
+    <img class="mr-3" src="{% static 'img/feedback.png'%}" alt="" width="48" height="48" style="margin: 10px;">
+  	</div>
+  	<div>
+    <div class="lh-100">
+      <h6 class="mb-0 text-white lh-100">Interview Feedback</h6>
+      <small>We all need people who will give us feedback</small>
+    </div>
+  </div>
+    </div>
+    <div class="1h-100 col-4" style="text-align: end;">
+    <img src="{% static 'img/logowhite.png'%}" style="width: 95px;border-radius: 11px;">
+  </div>
+  </div>
+
+  <div class="m-2 text-white-50 rounded shadow-md" style="justify-content: space-around; padding-left: 40px">
+   	<div class="row d-flex" style="    margin-left: -22px; padding-left: inherit;">
+   		<div class="col-3"  id="show1">
+   			1
+   		</div>
+   		<div class="col-3" id="show2">
+   			2
+   		</div>
+   		<div class="col-3" id="show3">
+   			3
+   		</div>
+   		<div class="col-3" id="show4">
+   			4
+   		</div>
+   	
+   	</div>
+  </div>
+
+  <div class=" bg-white rounded shadow-lg" id="userinfo"  style="padding: 30px;">
+    <h6 class="border-bottom border-gray pb-2 mb-0">User Information</h6>
+
+    <div class="media text-muted pt-3">
+      <label for="name" style="font-weight: 600;">Name</label>
+      <input type="text" name="name" id="name" class="form-control" onchange="$(this).css('border','')" required>
+    </div>
+    <div class="media text-muted pt-3">
+      <label for="location" style="font-weight: 600;">Interview Location</label>
+      <select class="form-select" id="location" onchange="$(this).css('border','')" >
+			  <option selected>select location</option>
+			  <option value="Navi Mumbai">Navi Mumbai</option>
+			  <option value="Chennai">Chennai</option>
+			  <option value="Gurgaon2">Gurgaon 2</option>
+			  <option value="Gurgaon3">Gurgaon 3</option>
+		</select>
+    </div>
+    <div class="media text-muted pt-3">
+      <label for="email" style="font-weight: 600;">Email Address</label>
+      <input type="email" name="email" id="email" class="form-control" onchange="$(this).css('border','')" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
+    </div>
+    <div class="media text-muted pt-3">
+      <label for="phone" style="font-weight: 600;">Phone Number</label>
+      <input type="tel" maxlength="10" onchange="return this.value.length < 11" name="phone" id="phone" class="form-control" onchange="$(this).css('border','')"  required>
+    </div>
+    <div class="" style="text-align: end;    padding-top: inherit;">
+    	<button class="btn btn-success m-1" id="next1">Next</button>
+    </div>
+  </div>
+
+  <div class="my-3 bg-white rounded shadow-lg" id="interviewerinfo"  style="padding: 30px;">
+    <h6 class="border-bottom border-gray pb-2 mb-0">Interviwer</h6>
+
+    <div class="media text-muted pt-3">
+      <label for="interviewername" style="font-weight: 600;">Name your Interviewer</label>
+      <!-- <input type="text" name="intervername" id="interviewername" class="form-control" onchange="$(this).css('border','')" required> -->
+      <select class="form-select" name="intervername" aria-label="Default select example" id="interviewername" onchange="$(this).css('border','')" required>
+			  <option selected>select interviewer name</option>
+			  <option value="xyz">xyz</option>
+			  <option value="abc">abc</option>
+		</select>
+    </div>
+    <div class="media text-muted pt-3">
+    <div>
+      <label for="rate" style="font-weight: 600;">Rate your Experience</label>
+    </div>
+    <div class="row d-flex">
+      <div class="rate">
+	    <input type="radio" id="star_5" name="rate" value="5"  onclick="starval(this)" required/>
+	    <label for="star_5" title="text">5 stars</label>
+	    <input type="radio" id="star_4" name="rate" value="4"  onclick="starval(this)"/>
+	    <label for="star_4" title="text">4 stars</label>
+	    <input type="radio" id="star_3" name="rate" value="3" onclick="starval(this)"/>
+	    <label for="star_3" title="text">3 stars</label>
+	    <input type="radio" id="star_2" name="rate" value="2" onclick="starval(this)"/>
+	    <label for="star_2" title="text">2 stars</label>
+	    <input type="radio" id="star_1" name="rate" value="1" onclick="starval(this)"/>
+	    <label for="star_1" title="text">1 star</label>
+	  </div>
+	</div>
+    </div>
+   
+    <div class="media text-muted pt-3">
+      <label for="" style="font-weight: 600;">Do you want to Refer your friend?</label>
+      <select class="form-select" aria-label="Default select example" id="referfriend" onchange="$(this).css('border','')" >
+		  <option selected></option>
+		  <option value="yes">Yes</option>
+		  <option value="no">No</option>
+		</select>
+    </div>
+
+    <div class="media text-muted pt-3" id="friendinfo">
+      <div id="" style="padding: 15px;">		
+        		<div class="title">
+        		<h5>Friend Refer Information</h5>
+        	</div>
+        <div id="refer_area">	
+        <div id="referform">	
+			  <div class="row mb-3">
+			  	
+			      <div class="col">
+			      	<label for="friendname"><h6>Name of your friend</h6></label>
+			      	 <input type="text" name="friendname" id="friendname" class="form-control" onchange="$(this).css('border','')" required>
+			      </div>
+			  </div>
+
+			  <div class="row mb-3">
+			  	
+			      <div class="col">
+			      	<label for="contact"><h6 >Contact Number</h6></label>
+			      	 <input type="number" name="friendcontact" id="contact" minlength="10" class="form-control" onchange="$(this).css('border','')" required>
+			      </div>
+			  </div>
+
+			  <div class="row mb-3">
+			      <div class="col">
+			      	<label for="friendlocation"><h6 >Location</h6></label>
+			      	 <input type="text" name="frindlocation" id="friendlocation" class="form-control" onchange="$(this).css('border','')" required>
+			      </div>
+			  </div>
+			  
+			</div>
+		</div>
+			  <div class="row mt-2" style="text-align: center;">
+			      	<button id="add-refer"  class="btn btn-primary">Add</button>	
+			  </div>
+			  <div class="row p-3" id="emptybin" style="justify-content: center;">
+			  	<img src="{% static 'img/recyclebin.png'%}" style="width:15%">
+			  </div>
+			  <div id="resultarea">
+			 <!-- <table class="table" style="overflow: auto;" id="table">
+			  <thead>
+			    <tr>
+			      <th scope="col">#</th>
+			      <th scope="col">Name</th>
+			      <th scope="col">Contact</th>
+			      <th scope="col">location</th>
+			    </tr>
+			  </thead>
+			  <tbody id="tbody">
+			    
+			  </tbody>
+			</table> -->
+			  </div>
+			</div>
+    </div>
+    <div class="" style="text-align: end;    padding-top: inherit;">
+    	<button class="btn btn-success m-1" id="per1">Previous</button>
+    	<button class="btn btn-success m-1" id="next2">Next</button>
+    </div>
+  </div>
+
+  <div class="my-3 bg-white rounded shadow-lg" id="socialpresent"  style="padding: 30px;">
+    <div class="row m-1">
+					
+		<div><h5 >Social Presence: Are you on ?</h5></div>
+		<!-- <div class="">
+		<input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" onclick="checkfunction()">
+		  <label class="form-check-label" for="flexCheckDefault">
+		    Yes
+		  </label>
+		</div> -->
+			      
+	</div>
+	<div id="socialmedialink">
+    <div class="media text-muted pt-3 input-group">
+      <img src="{% static 'img/facebook1.png'%}" style="width:10%; margin-right: 3%;">
+      <input type="text" name="facebookid" id="facebookid" class="form-control" onchange="$(this).css('border','')">
+    </div>
+    <div class="media text-muted pt-3 input-group">
+      <img src="{% static 'img/instagram1.png'%}" style="width:10%; margin-right: 3%;">
+      <input type="text" name="instagramid" id="instagramid" class="form-control" onchange="$(this).css('border','')">
+    </div>
+    <div class="media text-muted pt-3 input-group">
+      <img src="{% static 'img/linkedin1.png'%}" style="width:10%; margin-right: 3%;">
+      <input type="text" name="linkedinid" id="linkedinid" class="form-control" onchange="$(this).css('border','')">
+    </div>
+	</div>
+    <div class="" style="text-align: end;    padding-top: inherit;">
+    	<button class="btn btn-success m-1" id="per2">Previous</button>
+    	<button class="btn btn-success m-1" id="next3">Next</button>
+    </div>
+  </div>
+
+  <div class="my-3 bg-white rounded shadow-lg" id="socialmedia"  style="padding: 30px;">
+    <div class="row m-1">
+					
+		<div><h5 >Will you rate us on Google & write a review</h5></div>
+		<div class="">
+		<!-- <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" onclick="checkfunction1()">
+		  <label class="form-check-label" for="flexCheckDefault">
+		    Yes
+		  </label> -->
+		  <!-- <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" onclick="checkfunction1()">
+		  <label class="form-check-label" for="flexCheckDefault">
+		    No
+		  </label> -->
+		</div>
+			      
+			  </div>
+	<div id="googlereviews">		  
+    <div class="media text-muted pt-3">
+      <div class="row " style="justify-content: center;">
+      <div class="card m-1" style="width: auto;text-align: center;padding: 20px">
+	  <a href="https://www.google.com/search?rlz=1C1GCEU_enIN1024IN1024&tbs=lf:1,lf_ui:4&tbm=lcl&q=1point1+google&rflfq=1&num=10&rldimm=8348587418256494536"><img src="{% static 'img/google1.png'%}" class="card-img-top" alt="googlescan" style="width:5rem" ></a>
+	  <div class="card-body">
+	    <h5 class="card-title">Google </h5>
+	    
+	  </div>
+	</div>
+	<div class="card m-1" style="width: auto;text-align: center;padding: 10px">
+	  <a href="https://www.facebook.com/onepointonebpo/" ><img src="{% static 'img/facebook1.png'%}" class="card-img-top" alt="Facebook" style="width:5rem"></a>
+	  <div class="card-body">
+	    <h5 class="card-title">Facebook </h5>
+	  </div>
+	</div>
+	<div class="card m-1" style="width: auto;text-align: center;padding: 10px">
+	  <a href="https://www.instagram.com/1point1solutions/?hl=en" ><img src="{% static 'img/instagram1.png'%}" class="card-img-top" alt="Facebook" style="width:5rem"></a>
+	  <div class="card-body">
+	    <h5 class="card-title">Instagram </h5>
+	  </div>
+	</div>
+	<div class="card m-1" style="width: auto;text-align: center;padding: 20px">
+	  <a href="https://in.linkedin.com/company/one-point-one-solutions" ><img src="{% static 'img/linkedin1.png'%}" class="card-img-top" alt="Facebook" style="width:5rem"></a>
+	  <div class="card-body">
+	    <h5 class="card-title">LinkedIn </h5>
+	  </div>
+	</div>
+	</div>
+    </div>
+    
+    
+  </div>
+  <div class="" style="text-align: end;padding-top: inherit;">
+    	<button class="btn btn-success m-1" id="per3">Pervious</button>
+    	<button class="btn btn-success m-1" id="submitform">Submit</button>
+    </div>
+  </div> 
+  <div class="my-3 bg-white rounded shadow-lg" id="formsubmit" style="padding: 30px;">
+    <div class="container" style="text-align: center;">
+    	<img src="{% static 'img/success.gif'%}" style="width: 50%;" draggable="false">
+    	<h5 style="color:#2edb19">Form Submitted Successfully</h5>
+    </div>	
+  </div> 
+
+</main>
+<script src="{% static 'js/jquery.js'%}"></script>
+<script src="{% static 'js/custom.js'%}"></script>
+<script src="{% static 'js/boot.js'%}"></script>
+<script type="text/javascript">
+	/*count = 1
+	$('#add-refer').click(function(e){
+		$('#table').show();
+		var name = $('#friendname').val();
+		var contact = $('#contact').val();
+		var location = $('#friendlocation').val();
+		if(name=='' || contact=='' || location==''){
+			e.preventDefualt()
+			$('#table').hide();
+		}
+		alert(count)
+
+		if(count==1){
+			$('#emptybin').hide();
+			table = "<table class='table' style='overflow: auto;' id='table'><thead><tr><th scope='col'>#</th><th scope='col'>Name</th><th scope='col'>Contact</th><th scope='col'>location</th></tr></thead><tbody id='tbody'></tbody></table>"
+			$('#resultarea').append(table)
+			var form = '<tr> <td id="id'+count+'">'+count+'</td> <td>'+name+'</td> <td>'+contact+'</td> <td>'+location+'</td> </tr>'
+		$('#tbody').append(form)
+		$('#friendname').val('');
+		$('#contact').val('');
+		$('#friendlocation').val('');
+		count++
+		}
+		else{
+
+		var form = '<tr> <td id="id'+count+'">'+count+'</td> <td>'+name+'</td> <td>'+contact+'</td> <td>'+location+'</td> </tr>'
+		$('#tbody').append(form)
+		$('#friendname').val('');
+		$('#contact').val('');
+		$('#friendlocation').val('');
+		count++
+	}
+	});*/
+</script>
+</body>
+</html>
